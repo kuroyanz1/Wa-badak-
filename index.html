@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06090d">
+  <meta name="description" content="WA Badak — dashboard dan platform pengelolaan bot WhatsApp.">
+  <title>WA Badak — WhatsApp Bot Management Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="scanline" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="#home" data-route="home" aria-label="WA Badak beranda"><span>WA BADAK</span><b>█</b></a>
+    <div class="top-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Ubah tema"><span>☾</span><span>☀</span></button>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="app-shell">
+  <aside class="side-drawer" id="sideDrawer" aria-label="Navigasi utama">
+    <div class="drawer-head"><div class="drawer-brand">WA BADAK<span>█</span></div><button class="drawer-close" id="drawerClose" type="button" aria-label="Tutup menu">×</button></div>
+    <div class="drawer-scroll">
+      <div class="drawer-label">NAVIGASI</div>
+      <nav class="drawer-nav" id="dashboardNav">
+        <a href="#dashboard" data-route="dashboard">⊞ <span>dashboard</span></a>
+        <a href="#statistics" data-route="statistics">▥ <span>statistik</span></a>
+        <a href="#chat-admin" data-route="chat-admin">◔ <span>chat admin</span></a>
+        <a href="#shop" data-route="shop">$ <span>shop</span></a>
+        <a href="#subscription" data-route="subscription">⇡ <span>langganan</span></a>
+        <a href="#report" data-route="report">✎ <span>lapor / bantuan</span></a>
+        <a href="#profile" data-route="profile">⊙ <span>profil</span></a>
+        <a href="reporter.html">◉ <span>portal pelapor</span></a>
+        <a href="login.html?role=admin">⌘ <span>login admin</span></a>
+      </nav>
+
+      <div class="drawer-label">JADIBOT SAYA</div>
+      <div class="my-bot-mini" id="myBotMini"><span class="status-dot"></span><div><strong>628••••••2193</strong><small id="miniMode">PUBLIC</small></div></div>
+      <button class="drawer-add" type="button" data-action="add-bot">[ + tambah bot ]</button>
+
+      <div class="drawer-account"><span class="account-icon">?</span><span>akun@wabadak.id</span></div>
+      <button class="drawer-logout" type="button" data-action="logout">Logout</button>
+
+      <div class="drawer-label site-label">MENU SITUS</div>
+      <nav class="drawer-nav site-nav">
+        <a href="#home" data-route="home">⌂ <span>beranda</span></a>
+        <a href="#join" data-route="join">⊕ <span>join bot</span></a>
+        <a href="#groups" data-route="groups">◉ <span>grup</span></a>
+        <a href="#contact" data-route="contact">✉ <span>kontak</span></a>
+      </nav>
+    </div>
+  </aside>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <main id="app" tabindex="-1">
+    <!-- HOME -->
+    <section class="view" id="view-home" data-view="home">
+      <section class="hero"><div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Jadibot WhatsApp</p>
+          <h1>Management<br>Platform<span>_</span></h1>
+          <p class="lede">Ubah nomor WhatsApp-mu jadi bot dengan banyak perintah — gratis, tanpa sewa bulanan — dan kelola semuanya dari satu dashboard: status bot, mode, pengaturan, log real-time, dan grup.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#dashboard" data-route="dashboard">▶ Buka Dashboard</a>
+            <a class="btn btn-ghost" href="#docs" data-route="docs">$ Cara jadibot</a>
+          </div>
+        </div>
+        <div class="terminal-card hero-terminal">
+          <div class="term-top"><span class="lights"><i></i><i></i><i></i></span><code>wabadak@fleet:~/logs/activity.jsonl</code><b>live · online</b></div>
+          <div class="term-body">
+            <div class="term-line">&gt; cat /var/wabadak/live-stats.json</div>
+            <div class="stat-grid">
+              <div class="stat-box"><span>User Terdaftar</span><strong>1</strong><small>akun di dashboard</small></div>
+              <div class="stat-box"><span>Total Grup</span><strong id="homeGroupCount">1</strong><small>grup milik bot</small></div>
+              <div class="stat-box"><span>Total Perintah</span><strong>150+</strong><small>fitur tersedia</small></div>
+              <div class="stat-box live"><span>LIVE Jadibot Aktif</span><strong id="homeActive">1</strong><small>status bot kamu</small></div>
+            </div>
+            <div class="term-line mt">&gt; ps -ef | grep wabadak-bot</div>
+            <h2 class="terminal-title">Bot yang sedang aktif.</h2>
+            <div class="bot-summary"><b id="homeBotSummary">1 bot aktif</b><span>public · server #1 · 1 grup</span></div>
+            <div class="bot-table"><div class="bot-row head"><span>Nomor</span><span>Mode</span><span>Server</span><span>Grup</span><span>Status</span></div><div class="bot-row"><span>628••••••2193</span><span id="homeMode">PUBLIC</span><span>#1</span><span>1</span><span class="online-text">online</span></div></div>
+            <div class="term-foot"><span>dashboard siap dipakai</span><span class="term-foot-links"><a href="#bots" data-route="bots">$ direktori bot</a><a href="#join" data-route="join">⊕ Tambah bot ke grup</a></span></div>
+          </div>
+        </div>
+      </div></section>
+
+      <section class="section" id="home-features"><div class="container"><div class="section-head"><div><span class="shell">&gt; ls -la ./features/</span><h2>Semua yang kamu butuhkan<br>untuk mengelola bot.</h2></div><span class="section-no">01 / FEATURES</span></div>
+        <div class="feature-grid">
+          <article class="feature-card"><div class="icon">⚡</div><h3>Jadibot Gratis</h3><p>Kelola bot sendiri dari dashboard tanpa harus memindah-mindahkan menu.</p></article>
+          <article class="feature-card"><div class="icon">◉</div><h3>Mode Public / Self</h3><p>Ganti mode global atau atur mode per grup dari halaman Kelola.</p></article>
+          <article class="feature-card"><div class="icon">⊛</div><h3>Pengaturan Lengkap</h3><p>Anticall, autoblock, autoread, private, joinmode dan pengaturan grup.</p></article>
+          <article class="feature-card"><div class="icon">◈</div><h3>Live Log</h3><p>Lihat aktivitas bot dalam tampilan terminal seperti dashboard ZEKAIS.</p></article>
+          <article class="feature-card"><div class="icon">⊕</div><h3>Multi-Bot</h3><p>Direktori bot dan prioritas grup dibuat jelas agar tidak membingungkan.</p></article>
+          <article class="feature-card"><div class="icon">▤</div><h3>Lapor / Bantuan</h3><p>Grup Laporan adalah ruang web terpisah; tiket pelapor dan balasan admin dikelola di portal web.</p></article>
+        </div>
+        <div class="link-row"><a href="#features" data-route="features">$ Lihat semua fitur &amp; command</a><a href="#docs" data-route="docs">$ Baca dokumentasi</a></div>
+      </div></section>
+
+      <section class="section dark-band"><div class="container"><div class="section-head"><div><span class="shell">&gt; ./quickstart.sh</span><h2>4 langkah, cepat,<br>bot siap dikelola.</h2></div><span class="section-no">02 / QUICKSTART</span></div>
+        <div class="quick-grid"><div class="terminal-card quick-terminal"><div class="term-top"><span class="lights"><i></i><i></i><i></i></span><code>quickstart.sh</code><b>bash · wabadak-cloud</b></div><div class="term-body code-window"><div class="quick-caption">wabadak@cloud:~$</div><div class="quick-line">1. nomor WhatsApp tertaut</div><div class="quick-line">2. mode bot dipilih</div><div class="quick-line">3. pengaturan disimpan</div><div class="quick-line success">4. dashboard siap ✓</div><div class="cursor-line">wabadak@cloud:~$ <span class="blink">▋</span></div></div></div>
+          <div class="steps"><div class="step"><span>01</span><div><h3>Pastikan bot sudah tertaut</h3><p>Bot WA Badak milikmu sudah ada. Dari dashboard ini kamu fokus mengelola tampilannya.</p></div></div><div class="step"><span>02</span><div><h3>Pilih Public atau Self</h3><p>Mode global bisa diubah dari tab Pengaturan kapan pun.</p></div></div><div class="step"><span>03</span><div><h3>Atur per grup</h3><p>Di tab Grup, setiap grup bisa memakai mode yang berbeda.</p></div></div><div class="step"><span>04</span><div><h3>Pantau Terminal</h3><p>Semua aksi dashboard muncul sebagai log demo lokal.</p></div></div></div></div>
+      </div></section>
+
+      <section class="section" id="home-pricing"><div class="container"><div class="section-head"><div><span class="shell">&gt; cat pricing.txt</span><h2>Jadibot-nya gratis.<br>Serius.</h2></div><span class="section-no">03 / PRICING</span></div><div class="pricing-box live-pricing"><div><div class="price-label">jadibot: Rp0 — selamanya</div><p>Fitur inti dashboard tidak membutuhkan paket berbayar. Shop dan langganan dibuat sebagai halaman terpisah agar menu tidak mati saat ditekan.</p><p>Untuk WA Badak versi kamu, pengaitan ke payment gateway nyata belum diaktifkan pada build ini.</p><div class="price-actions"><a class="btn btn-primary" href="#dashboard" data-route="dashboard">▶ Buka Dashboard</a><a class="text-link" href="#shop" data-route="shop">$ Buka shop</a></div></div></div></div></section>
+
+      <section class="section" id="home-faq"><div class="container"><div class="section-head"><div><span class="shell">&gt; cat faq.txt</span><h2>Pertanyaan yang<br>sering ditanyakan.</h2></div><span class="section-no">04 / FAQ</span></div><div class="faq-list">
+        <details open><summary>Kenapa tombol Grup Laporan tidak langsung ke WhatsApp?</summary><p>Karena laporan ditangani di website: pelapor membuat tiket dan admin membalas dari panel admin. Grup WhatsApp hanya komunitas eksternal.</p></details>
+        <details><summary>Apakah mode Public/Self langsung mengubah bot?</summary><p>Belum. Build ini menyimpan state di browser. Untuk perubahan bot nyata diperlukan endpoint API terautentikasi milik WA Badak.</p></details>
+        <details><summary>Apakah menu dashboard sudah lengkap?</summary><p>Struktur navigasi mengikuti menu dashboard ZEKAIS yang terlihat di web saat ini: dashboard, statistik, chat admin, shop, langganan, lapor/bantuan, profil, tambah bot, serta menu situs.</p></details>
+      </div></div></section>
+    </section>
+
+    <!-- DASHBOARD AND APP VIEWS -->
+    <section class="view app-view" id="view-dashboard" data-view="dashboard">
+      <div class="container app-container">
+        <div class="app-topline"><span>$ my bots --list</span><span id="clock">00:00:00</span></div>
+        <div class="page-heading"><div><h1>Dashboard</h1><p><b id="dashBotCount">1</b> jadibot aktif · <b>semua online</b> · 1 grup terhubung</p></div><button class="help-btn" type="button" data-route="report">?</button></div>
+        <div class="dash-grid">
+          <article class="dash-stat green"><span>JADIBOT AKTIF</span><strong>1</strong><small>online &amp; merespons</small></article>
+          <article class="dash-stat blue"><span>MODE <span id="dashModeTitle">PUBLIC</span></span><strong id="dashModeGlyph">1</strong><small id="dashModeCopy">merespons semua orang</small></article>
+          <article class="dash-stat purple"><span>MODE SELF</span><strong id="dashSelfCount">0</strong><small>hanya pemilik</small></article>
+          <article class="dash-stat yellow"><span>TOTAL GRUP</span><strong id="dashGroupCount">1</strong><small>gabungan semua bot</small></article>
+        </div>
+        <div class="bot-card">
+          <div class="bot-card-head"><div><span class="online-dot"></span><strong>628••••••2193</strong><span class="chip" id="botModeChip">PUBLIC</span></div><span>srv#1</span></div>
+          <div class="bot-card-meta"><span id="groupMeta">1 grup</span><span>uptime 4h 13j</span><span>• anti-call</span><span>• join mode</span><span>• auto-block</span><span>• private off</span></div>
+          <div class="bot-actions"><button type="button" class="btn btn-primary" data-action="manage">⚙ Kelola</button><button type="button" class="btn btn-ghost" data-action="add-bot">⊕ Tambah Bot</button><button type="button" class="btn btn-ghost" data-action="logout">⏏ Logout</button></div>
+        </div>
+        <div class="terminal-card log-panel"><div class="term-top"><span class="lights"><i></i><i></i><i></i></span><code>terminal.log</code><b>● live</b></div><div class="term-body"><div class="log-toolbar"><button class="filter active" data-log-filter="ALL">ALL</button><button class="filter" data-log-filter="CMD">CMD</button><button class="filter" data-log-filter="OK">OK</button><button class="filter" data-log-filter="WARN">WARN</button><button class="filter" data-log-filter="ERROR">ERROR</button><button class="filter" data-log-filter="INFO">INFO</button><button type="button" class="pause-btn" id="pauseLogs">Ⅱ Pause</button></div><div class="log-list" id="logList"></div></div></div>
+      </div>
+    </section>
+
+    <section class="view app-view" id="view-manage" data-view="manage">
+      <div class="container app-container"><div class="app-topline"><span>$ dashboard / jadibot</span><span>628••••••2193</span></div>
+        <div class="page-heading"><div><h1>Kelola Jadibot</h1><p>Atur mode, pengaturan, grup, terminal, dan aksi.</p></div><span class="mode-badge" id="manageModeBadge">PUBLIC</span></div>
+        <div class="tabbar" id="manageTabs"><button class="tab active" data-manage-tab="summary">Ringkasan</button><button class="tab" data-manage-tab="settings">Pengaturan</button><button class="tab" data-manage-tab="groups">Grup</button><button class="tab" data-manage-tab="terminal">Terminal</button><button class="tab" data-manage-tab="actions">Aksi</button></div>
+        <div class="manage-pane" id="manage-summary"><div class="manage-grid"><article class="panel"><div class="panel-label">STATUS BOT</div><h2>Aktif &amp; online</h2><p>Bot tersedia di server #1 dan terhubung ke 1 grup.</p><div class="status-line"><span class="online-dot"></span> Online</div></article><article class="panel"><div class="panel-label">MODE GLOBAL</div><div class="mode-switch big"><button type="button" data-mode="public" class="mode-option" id="modePublic">PUBLIC</button><button type="button" data-mode="self" class="mode-option" id="modeSelf">SELF</button></div><p class="small-note">Public = respon semua orang. Self = hanya pemilik.</p></article></div></div>
+        <div class="manage-pane hidden" id="manage-settings"><div class="settings-list"><div class="setting-row"><div><strong>Anticall</strong><small>Tolak panggilan masuk otomatis.</small></div><button class="switch" type="button" data-setting="anticall" aria-pressed="true"><span></span></button></div><div class="setting-row"><div><strong>Autoblock</strong><small>Blokir nomor yang japri bot.</small></div><button class="switch" type="button" data-setting="autoblock" aria-pressed="true"><span></span></button></div><div class="setting-row"><div><strong>Autoread</strong><small>Centang biru pesan grup.</small></div><button class="switch" type="button" data-setting="autoread" aria-pressed="true"><span></span></button></div><div class="setting-row"><div><strong>Joinmode</strong><small>Izinkan bot dimasukkan lewat fitur join.</small></div><button class="switch" type="button" data-setting="joinmode" aria-pressed="false"><span></span></button></div><div class="setting-row"><div><strong>Private</strong><small>Balas chat pribadi. Hanya nyalakan jika memang dibutuhkan.</small></div><button class="switch" type="button" data-setting="private" aria-pressed="false"><span></span></button></div></div></div>
+        <div class="manage-pane hidden" id="manage-groups"><div class="group-list"><div class="group-row"><div><strong>Group Laporan</strong><small>1 anggota terhubung · mode saat ini <span id="groupModeLabel">PUBLIC</span></small></div><div class="mode-switch"><button type="button" data-group-mode="public">PUBLIC</button><button type="button" data-group-mode="self">SELF</button></div></div></div><p class="small-note">Ini UI lokal. Perubahan nyata ke bot membutuhkan API.</p></div>
+        <div class="manage-pane hidden" id="manage-terminal"><div class="terminal-card inner-log"><div class="term-top"><span class="lights"><i></i><i></i><i></i></span><code>~/bots/628••••••2193/activity.log</code><b>live</b></div><div class="term-body"><div class="log-list" id="manageLogList"></div></div></div></div>
+        <div class="manage-pane hidden" id="manage-actions"><div class="action-grid"><button class="action-card" type="button" data-action="test-ping"><span>⌁</span><strong>Ping bot</strong><small>Simulasi respon bot.</small></button><button class="action-card" type="button" data-action="refresh"><span>↻</span><strong>Refresh status</strong><small>Perbarui status dashboard.</small></button><button class="action-card danger" type="button" data-action="logout"><span>⏏</span><strong>Logout</strong><small>Hapus sesi lokal dashboard.</small></button></div></div>
+      </div>
+    </section>
+
+    <section class="view app-view" id="view-statistics" data-view="statistics">
+      <div class="container app-container"><div class="app-topline"><span>$ stats --watch</span><span>tick 2s</span></div><div class="page-heading"><div><h1>Statistik</h1><p>Ringkasan aktivitas dashboard dan bot lokal.</p></div></div><div class="stats-grid-large"><article class="metric-card"><span>COMMAND HARI INI</span><strong id="metricCommands">128</strong><small>↑ 12% dari kemarin</small></article><article class="metric-card"><span>GROUP AKTIF</span><strong>1</strong><small>semua online</small></article><article class="metric-card"><span>RESPONSE</span><strong>128ms</strong><small>rata-rata demo</small></article><article class="metric-card"><span>SESSION</span><strong>4h 13j</strong><small>sejak pairing</small></article></div><div class="panel"><div class="panel-label">COMMAND TERATAS</div><div class="bar-list"><div><span>.ping</span><b style="width:82%"></b></div><div><span>.menu</span><b style="width:69%"></b></div><div><span>.profile</span><b style="width:52%"></b></div><div><span>.setgrup</span><b style="width:36%"></b></div></div></div></div>
+    </section>
+
+    <section class="view app-view" id="view-chat-admin" data-view="chat-admin"><div class="container app-container"><div class="app-topline"><span>$ chat-admin</span><span>support</span></div><div class="page-heading"><div><h1>Chat Admin</h1><p>Ruang percakapan bantuan internal.</p></div></div><div class="chat-panel"><div class="chat-messages"><div class="chat-bubble admin"><small>Admin</small>Halo, ada yang bisa dibantu?</div><div class="chat-bubble user"><small>Kamu</small>Bot saya online, tapi saya mau ubah mode.</div><div class="chat-bubble admin"><small>Admin</small>Buka Kelola → Pengaturan → Public/Self.</div></div><form class="chat-form" id="chatForm"><input id="chatInput" placeholder="Tulis pesan…" autocomplete="off"><button class="btn btn-primary" type="submit">Kirim</button></form></div></div></section>
+
+    <section class="view app-view" id="view-shop" data-view="shop"><div class="container app-container"><div class="app-topline"><span>$ ./shop --public</span><span>opsional</span></div><div class="page-heading"><div><h1>Shop</h1><p>Halaman katalog lokal agar tombol shop tidak mati.</p></div></div><div class="product-grid"><article class="product-card"><span>VIP</span><h2>Unlimited</h2><p>Panel contoh fitur premium. Belum terhubung pembayaran.</p><button class="btn btn-ghost" type="button" data-action="show-toast">Lihat benefit</button></article><article class="product-card"><span>VVIP</span><h2>Lifetime</h2><p>Panel contoh fitur premium. Belum terhubung pembayaran.</p><button class="btn btn-ghost" type="button" data-action="show-toast">Lihat benefit</button></article><article class="product-card"><span>PRIORITAS</span><h2>Per-grup</h2><p>Panel contoh prioritas bot untuk grup.</p><button class="btn btn-ghost" type="button" data-action="show-toast">Lihat benefit</button></article></div></div></section>
+
+    <section class="view app-view" id="view-subscription" data-view="subscription"><div class="container app-container"><div class="app-topline"><span>$ subscription</span><span>local</span></div><div class="page-heading"><div><h1>Langganan</h1><p>Status paket dashboard kamu.</p></div></div><div class="subscription-card"><div><span class="pill">FREE</span><h2>Jadibot aktif</h2><p>Bot sudah tersedia. Tidak ada tagihan pada build ini.</p></div><div class="subscription-side"><strong>0 / bulan</strong><small>UI demo</small></div></div></div></section>
+
+    <section class="view app-view" id="view-report" data-view="report"><div class="container app-container"><div class="app-topline"><span>$ lapor</span><span>support</span></div><div class="page-heading"><div><h1>Lapor &amp; Bantuan</h1><p>Kirim tiket bug, saran, atau pertanyaan.</p></div></div><div class="report-grid"><form class="panel report-form" id="reportForm"><div class="panel-label">＋ BUAT LAPORAN</div><label>Email<input required type="email" placeholder="kamu@email.com"></label><label>Kategori<select><option>Error</option><option>Request Fitur</option><option>Saran</option><option>Kritik</option><option>Pertanyaan / Lainnya</option></select></label><label>Judul<input required placeholder="ringkas masalah/saranmu"></label><label>Detail<textarea maxlength="5000" placeholder="Tulis detail…"></textarea></label><button class="btn btn-primary" type="submit">Kirim laporan →</button></form><div class="panel ticket-panel"><div class="panel-label">LACAK TIKET</div><label>Kode tiket<input id="ticketCode" placeholder="LAP-XXXXX"></label><label>Email<input type="email" placeholder="email yang kamu pakai saat lapor"></label><button class="btn btn-ghost" type="button" data-action="track-ticket">Lacak →</button><p class="small-note">Tiket demo disimpan di browser ini.</p></div></div></div></section>
+
+    <section class="view app-view" id="view-profile" data-view="profile"><div class="container app-container"><div class="app-topline"><span>$ whoami</span><span>local account</span></div><div class="page-heading"><div><h1>Profil</h1><p>Ringkasan akun yang sedang membuka dashboard.</p></div></div><div class="profile-card"><div class="avatar">?</div><div><h2>WA Badak User</h2><p>akun@wabadak.id</p><span class="pill">OWNER</span></div><div class="profile-actions"><button class="btn btn-ghost" type="button" data-action="show-toast">Edit profil</button><button class="btn btn-ghost" type="button" data-action="logout">Logout</button></div></div></div></section>
+
+    <!-- PUBLIC SITE VIEWS -->
+    <section class="view app-view" id="view-join" data-view="join"><div class="container app-container"><div class="app-topline"><span>$ join --group</span><span>public</span></div><div class="page-heading"><div><h1>Tambah bot ke grupmu</h1><p>Tempel link grup untuk memulai proses join.</p></div></div><div class="panel"><label>Link undangan grup<input id="joinLink" placeholder="https://chat.whatsapp.com/XXXXXXXX"></label><button class="btn btn-primary" type="button" data-action="find-bot">Cari bot yang tersedia</button><div class="result-box" id="joinResult">Hasil pencarian muncul di sini.</div></div></div></section>
+
+    <section class="view app-view" id="view-groups" data-view="groups"><div class="container app-container"><div class="app-topline"><span>$ groups --official</span><span>public</span></div><div class="page-heading"><div><h1>Grup &amp; Komunitas</h1><p>Daftar jalur komunitas dan bantuan WA Badak.</p></div></div><div class="community-grid"><article class="community-card"><span>💬</span><h2>GROUP LAPORAN</h2><p>Tempat utama untuk bug, bantuan dan diskusi.</p><a class="btn btn-ghost" href="reporter.html">Buka portal pelapor →</a></article><article class="community-card"><span>📢</span><h2>CHANNEL OFFICIAL</h2><p>Update fitur dan status layanan.</p><a class="btn btn-ghost" href="https://www.whatsapp.com/" target="_blank" rel="noopener">Ikuti channel ↗</a></article><article class="community-card"><span>👥</span><h2>GROUP KOMUNITAS</h2><p>Tempat diskusi pengguna.</p><button class="btn btn-ghost" type="button" data-action="show-toast">Salin info</button></article></div></div></section>
+
+    <section class="view app-view" id="view-contact" data-view="contact"><div class="container app-container"><div class="app-topline"><span>$ contact</span><span>support</span></div><div class="page-heading"><div><h1>Kontak &amp; Bantuan</h1><p>Pilih jalur yang sesuai.</p></div></div><div class="contact-grid"><article class="contact-card"><span>💬</span><h2>Chat Admin</h2><p>Masuk ke ruang bantuan internal.</p><a class="btn btn-primary" href="reporter.html">Chat dengan admin →</a></article><article class="contact-card"><span>📝</span><h2>Tiket Laporan</h2><p>Bug, request fitur, saran dan pertanyaan.</p><a class="btn btn-ghost" href="reporter.html">Buat tiket →</a></article><article class="contact-card"><span>👥</span><h2>Grup Laporan</h2><p>Jalur komunitas dan diskusi.</p><a class="btn btn-ghost" href="reporter.html">Buka portal pelapor →</a></article><article class="contact-card"><span>⚙️</span><h2>Portal Admin</h2><p>Panel privat untuk membalas dan mengelola tiket pelapor.</p><a class="btn btn-ghost" href="login.html?role=admin">Login admin →</a></article></div></div></section>
+
+    <section class="view app-view" id="view-monitor" data-view="monitor"><div class="container app-container"><div class="app-topline"><span>$ wabadak-stat --watch --all</span><span>tick 2s</span></div><div class="page-heading"><div><h1>Server Monitor</h1><p>Monitor demo resource dan koneksi bot.</p></div></div><div class="monitor-grid"><article class="monitor-card"><span>CPU</span><strong>18%</strong><div class="meter"><i style="width:18%"></i></div></article><article class="monitor-card"><span>MEM</span><strong>42%</strong><div class="meter"><i style="width:42%"></i></div></article><article class="monitor-card"><span>NET</span><strong>12ms</strong><div class="meter"><i style="width:65%"></i></div></article></div></div></section>
+
+    <section class="view app-view" id="view-features" data-view="features"><div class="container app-container"><div class="app-topline"><span>$man wabadak-bot --commands</span><span>150+ command</span></div><div class="page-heading"><div><h1>Fitur &amp; Command</h1><p>14 kategori command dan fitur pengelolaan bot.</p></div></div><div class="feature-filters" id="featureFilters"><button class="filter active" data-feature-filter="all">semua</button><button class="filter" data-feature-filter="General">General</button><button class="filter" data-feature-filter="Group">Group</button><button class="filter" data-feature-filter="Jadibot">Jadibot</button><button class="filter" data-feature-filter="Downloader">Downloader</button><button class="filter" data-feature-filter="Sticker">Sticker</button><button class="filter" data-feature-filter="Maker">Maker</button><button class="filter" data-feature-filter="Tools">Tools</button><button class="filter" data-feature-filter="Game">Game</button><button class="filter" data-feature-filter="VIP">VIP</button><button class="filter" data-feature-filter="VVIP">VVIP</button></div><div class="command-grid" id="commandGrid"></div></div></section>
+
+    <section class="view app-view" id="view-docs" data-view="docs"><div class="container app-container"><div class="app-topline"><span>$ cat ~/docs/panduan-jadibot.md</span><span>public</span></div><div class="page-heading"><div><h1>Dokumentasi Jadibot</h1><p>Panduan ringkas dari bot yang sudah terhubung sampai pengelolaan dashboard.</p></div></div><div class="docs-list"><details open><summary>01 · Apa itu jadibot?</summary><p>Jadibot adalah nomor WhatsApp yang ditautkan sebagai perangkat bot dan dikelola dari dashboard.</p></details><details><summary>02 · Mode Public / Self</summary><p>Public merespons semua orang. Self hanya merespons pemilik. Mode per-grup bisa diatur lewat tab Grup.</p></details><details><summary>03 · Pengaturan bot</summary><p>Anticall, autoblock, autoread, joinmode dan private tersedia dalam tab Pengaturan.</p></details><details><summary>04 · Status &amp; koneksi</summary><p>Panel Terminal menampilkan log demo lokal agar alur UI mudah diuji.</p></details></div></div></section>
+
+    <section class="view app-view" id="view-bots" data-view="bots"><div class="container app-container"><div class="app-topline"><span>$ ls -la /active-bots/</span><span>1 result</span></div><div class="page-heading"><div><h1>Jadibot Directory</h1><p>Nomor dimasking untuk privasi.</p></div></div><div class="table-panel"><div class="table-toolbar"><select id="modeFilter"><option>Semua mode</option><option>PUBLIC</option><option>SELF</option></select><select id="serverFilter"><option>Semua server</option><option>Server #1</option><option>Server #2</option></select><input id="botSearch" placeholder="cari nomor / server…"></div><div class="directory-table"><div class="dir-row head"><span>Nomor</span><span>Mode</span><span>JoinMode</span><span>Prioritas</span><span>Grup</span><span>Server</span><span>Status</span></div><div class="dir-row"><span>628••••••2193</span><span id="dirMode">PUBLIC</span><span>OFF</span><span>1</span><span>1 grup</span><span>Server #1</span><span class="online-text">Online</span></div></div></div></div></section>
+
+    <section class="view app-view" id="view-about" data-view="about"><div class="container app-container"><div class="app-topline"><span>$ cat ./about.txt</span><span>WA Badak</span></div><div class="page-heading"><div><h1>WA Badak</h1><p>Your bots. Your rules.</p></div></div><div class="panel prose"><p>Platform front-end untuk mengelola bot WhatsApp dengan tampilan terminal, panel status, mode Public/Self, pengaturan per grup, log dan bantuan.</p><p>Build ini fokus merapikan navigasi dan tombol agar setiap menu memiliki tujuan yang jelas.</p></div></div></section>
+
+    <section class="view app-view" id="view-terms" data-view="terms"><div class="container app-container"><div class="app-topline"><span>$ cat ./terms.txt</span><span>local build</span></div><div class="page-heading"><div><h1>Syarat &amp; Ketentuan</h1><p>Ketentuan penggunaan versi tampilan WA Badak.</p></div></div><div class="panel prose"><p>Gunakan bot untuk aktivitas yang sah dan menghormati aturan WhatsApp serta anggota grup.</p><p>Perubahan mode dan setting pada build ini bersifat lokal sampai API bot nyata dihubungkan.</p></div></div></section>
+  </main>
+</div>
+
+<button class="report-float" id="reportFloat" type="button" aria-expanded="false"><span class="chat-icon">💬</span><span><strong>Grup Laporan</strong><small id="reportPreview">web ticketing · admin + pelapor</small></span><span class="report-caret">▲</span></button>
+
+<div class="report-drawer" id="reportDrawer" aria-hidden="true">
+  <div class="report-head">
+    <div><strong>💬 Grup Laporan</strong><small>ruang web · tiket & balasan admin terpisah dari WhatsApp</small></div>
+    <div class="report-head-actions"><button type="button" id="reportDrawerExpand" aria-label="Perbesar">↗</button><button type="button" id="reportDrawerClose" aria-label="Tutup">×</button></div>
+  </div>
+  <div class="report-chat" id="reportChat">
+    <div class="report-msg"><b>Admin</b><p>Selamat datang. Tulis masalah atau pertanyaan kamu di sini.</p><small>10:54</small></div>
+    <div class="report-msg report-msg-image"><div class="fake-photo">Screenshot laporan</div><p>Kalau ada error, kirim screenshot biar gampang dicek.</p><small>10:56</small></div>
+    <div class="report-msg"><b>Member</b><p>Aku sudah bisa masuk, tinggal scan QR-nya aja.</p><small>10:58</small></div>
+  </div>
+  <div class="report-actions">
+    <a class="btn btn-primary" href="reporter.html">Buka portal pelapor →</a>
+    <button class="btn btn-ghost" type="button" data-action="open-report">Tulis cepat</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" type="button">×</button><h2 id="modalTitle">Tambah Bot</h2><div id="modalBody"></div></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<footer class="footer"><div class="container"><div class="footer-title">~/wabadak/footer.sh</div><div class="footer-brand">WA BADAK█ <span>// your bots, your rules — dashboard ready</span></div><div class="footer-links"><span class="block">$ cd ~/</span><a href="#features" data-route="features">fitur</a>·<a href="#docs" data-route="docs">docs</a>·<a href="#dashboard" data-route="dashboard">dashboard</a>·<a href="#bots" data-route="bots">listbot</a></div><div class="footer-links"><span class="block">$ cd ~/platform</span><a href="#about" data-route="about">about</a>·<a href="#groups" data-route="groups">grup</a>·<a href="#monitor" data-route="monitor">monitor</a>·<a href="#contact" data-route="contact">kontak</a>·<a href="#report" data-route="report">lapor</a>·<a href="#terms" data-route="terms">terms</a></div><div class="footer-bottom"><span>$ open @community · <a href="#groups" data-route="groups">community</a> · <button class="footer-btn" type="button" data-action="open-report">grup-laporan</button></span><span># © 2026 wabadak.id operational_</span></div></div></footer>
+
+<script src="app.js"></script>
+</body>
+</html>
